@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- 
+Code to update to-do item
+NOTE : I called the notes tasks In this project and the to-do tasks are called todo -->
+{% block content %}
+    <section class="feature">
+        <div class="feature-content">
+            <h1>Update Task</h1>
+            <form method="post" action="{% url 'update_todo' todo.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="w-4/4 p-4">
+                    <label for="name" class="form-label">Title:</label>
+                    <input type="text" name="name" id="name" value="{{ todo.name }}" class="form-control border border-black px-2 py-1 rounded"required>
+                </div> 
+                <div class="w-full p-4">
+                    <label for="completed" class="form-label">Completed:</label>
+                    <input type="checkbox" name="completed" {% if todo.completed %} checked="checked" {% endif %} >
+                </div>
+
+                <div>
+                <button class="btn btn-primary cta" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock content %}

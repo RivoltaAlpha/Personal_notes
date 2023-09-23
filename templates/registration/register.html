@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="login-form-wrapper">
+<h2>Register</h2>
+<form method="post" class="custom-login-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary cta login-button" type="submit">Register</button>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+<!-- 
+Code to update notes
+NOTE : I called the notes tasks In this project and the to-do tasks are called todo -->
+{% block content %}
+    <section class="feature">
+        <div class="feature-content">
+            <h1>Update Task</h1>
+            <form method="post" action="{% url 'update_task' task.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="w-4/4 p-4">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" name="title" id="title" value="{{ task.title }}" class="form-control border border-black px-2 py-1 rounded"required>
+                </div> 
+
+                <div class="w-4/4 p-4">
+                <label for="description" class="form-label">Description:</label>
+                <textarea name="description" id="description" class="form-control border border-black px-2 py-1 rounded">
+                    {{ task.description|default_if_none:"None" }}  </textarea>
+                </div>
+
+                <div class="w-4/4 p-4">
+                {% if task.attachment %}
+                <label for="attachment" class="form-label">Current Attachment:</label>
+                <a href="{{ task.attachment.url }}" target="_blank">{{ task.attachment }}</a>
+                <br>
+                {% endif %}
+                <label for="new_attachment" class="form-label">New Attachment:</label>
+                <input type="file" name="new_attachment" id="new_attachment" class="form-control border border-black px-2 py-1 rounded">
+                </div>
+
+                <div>
+                <button class="btn btn-primary cta" type="submit">Update Task</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock content %}

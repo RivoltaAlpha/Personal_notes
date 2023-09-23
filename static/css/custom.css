@@ -1,0 +1,104 @@
+/* static/css/custom.css */
+
+.custom-login-form {
+    background-size: cover;
+    color: rgb(14, 14, 14); /* Text color */
+    font-family:  sans-serif; /* Custom font */
+  }
+  
+  /* Style input fields */
+  .custom-login-form input[type="text"],
+  .custom-login-form input[type="password"] {
+    background-color: rgb(210, 236, 234); /* Semi-transparent background */
+    color: rgb(8, 8, 8); /* Text color */
+    border: rounded;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  /* Style for the task list */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Change the background color */
+body {
+  background-color: #f8cde5; /* Use your preferred color code */
+}
+
+/* Apply styles to the login form wrapper */
+.login-form-wrapper {
+  width: 300px; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Style the login form */
+.custom-login-form {
+  margin-top: 10px;
+}
+
+/* Style the login button */
+.login-button {
+  margin-top: 10px;
+}
+
+
+/* Style for each task item */
+.task-item {
+  margin-bottom: 20px;
+  border: 1px solid #0e0c0c;
+  padding: 10px;
+  background-color: #da6363;
+  border-radius: 10px;
+  margin-right: flex; /* Increase right margin to add space */
+  margin-left: flex; /* Increase left margin to add space */
+}
+
+.task-item a {
+  color: rgb(78, 19, 187); /* Change the link color to blue */
+  text-decoration: none; /* Remove underline from links */
+  margin-right: 10px; /* Add a margin between links */
+}
+
+.b {
+  color: rgb(225, 219, 221); /* Change the link color to blue */
+}
+
+.login-button{
+  color: black;
+  padding: 1px;
+  background-color: rgb(46, 166, 217);
+  border-radius: 10px ;
+  padding: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+  min-width: 6rem;
+  text-align: center;
+}
+
+/* Splitting the screen */
+/* Splitting the screen */
+.split {
+  display: flex;
+  justify-content: space-between;
+   /* Add margin around the split layout */
+}
+
+.left {
+  width: 50%;
+  padding-right: 2rem; /* Add padding to the right to separate from the tasks */
+}
+
+
+.right {
+  width: 40%;
+}

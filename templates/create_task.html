@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Code to create notes
+NOTE : I called the notes tasks In this project and the to-do tasks are called todo  -->
+{% block content %}
+    <section class="feature">
+        <div class="feature-content">
+            <h1>Create Task</h1>
+
+            <form method="post" action="{% url 'create_list' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+            
+                <div class="w-full p-4">
+                    <input type="hidden" name="completed" value="0">
+                    <label for="completed">Completed:</label>
+                    <input type="checkbox" name="completed" id="completed" value="1">
+                </div>
+                
+            
+                <div class="w-full p-4">
+                    <label for="name" class="form-label">Title:</label>
+                    <input type="text" name="name" id="name" class="form-control border border-black px-2 py-1 rounded" required>
+                </div>
+                
+                <div>
+                    <button class="btn btn-primary cta" type="submit">Create list</button>
+                </div>
+            </form>
+            
+        </div>
+    </section>
+{% endblock content %}
+
+
+            <!-- <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const taskInput = document.getElementById('title'); // Assuming your input has an id 'title'
+                    
+                    taskInput.addEventListener('keydown', function(event) {
+                        if (event.key === 'Enter') {
+            
+                            const taskTitle = taskInput.value.trim();
+                            if (taskTitle !== '') {
+                                createSubtask(taskTitle);
+                                taskInput.value = ''; // Clear the input field
+                            }
+                        }
+                    });
+            
+                    function createSubtask(title) {
+                        // Send AJAX request to your Django view
+                        fetch('{% url ',create_list, ' %}', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': '{{ csrf_token }}', // Get the CSRF token from the template
+                            },
+                            body: JSON.stringify({
+                                parent_task_id: '{{ task.id }}', // Replace with appropriate task ID
+                                title: title,
+                            }),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Handle response (if needed)
+                            console.log(data);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                    }
+                });
+            </script> -->
+            

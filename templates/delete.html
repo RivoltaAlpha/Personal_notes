@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- 
+Code to delete notes
+NOTE : I called the notes tasks In this project and the to-do tasks are called todo -->
+
+{% block content %}
+    <section class="feature">
+        <div class="feature-content">
+            <h1>Delete Task</h1>
+            <p>Are you sure you want to delete the following note?</p>
+            <p><strong>Title:</strong> {{ task.title }}</p>
+            
+            {% if task.description %}
+            <p><strong>Description:</strong> {{ task.description }}</p>
+            {% endif %}
+
+            {% if task.attachment %}
+            <p><strong>Attachment:</strong> <a class="btn btn-primary cta" href="{{ task.attachment.url }}" target="_blank">View Attachment</a></p>
+            {% endif %}
+            <form method="post" action="{% url 'delete_task' task.id %}">
+                {% csrf_token %}
+                <button class="btn btn-primary cta" type="submit">Confirm Delete</button>
+                <a class="btn btn-primary cta" href="{% url 'task_list' %}">Cancel</a>
+            </form>
+        </div>
+    </section>
+{% endblock content %}

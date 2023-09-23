@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+<!--
+Code to update to-do item
+NOTE : I called the notes tasks In this project and the to-do tasks are called todo -->
+
+{% block content %}
+    <section class="feature">
+        <div class="feature-content">
+            <h1>Delete Task</h1>
+            <p>Are you sure you want to delete the following task?</p>
+            <p><strong>Title:</strong> {{ todo.name }}</p>
+            
+            {% if todo.completed %}
+            <p><strong>Completed:</strong> {{ task.completed }}</p>
+            {% endif %}
+
+            <form method="post" action="{% url 'delete_todo' todo.id %}">
+                {% csrf_token %}
+                <button class="btn btn-primary cta" type="submit">Confirm Delete</button>
+                <a class="btn btn-primary cta" href="{% url 'task_list' %}">Cancel</a>
+            </form>
+        </div>
+    </section>
+{% endblock content %}
